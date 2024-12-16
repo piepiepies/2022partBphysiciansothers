@@ -1,43 +1,74 @@
 -- 1) total numbers for this data
-CREATE VIEW initial_exploratory AS
+WITH initial_cte AS(
 SELECT
-	'Total' AS Category,
-	COUNT(*) AS total_rows,
-	SUM(total_services) AS total_services_counts,
-	COUNT(DISTINCT hcpcs_code) AS total_distinct_codes,
-	COUNT(DISTINCT provider_npi) AS total_distinct_providers,
-	ROUND(SUM(total_services * avg_submitted_charge),2) AS total_submitted,
-	ROUND(SUM(total_services * avg_medicare_allowed_amt),2) AS total_allowed,
-	ROUND(SUM(total_services * avg_medicare_payment_amt),2) AS total_paid
-FROM payment_information
-UNION ALL
+	CAST(COUNT(*) AS float) AS total_rows,
+	CAST(SUM(total_services) AS float) AS total_services_counts,
+	CAST(COUNT(DISTINCT hcpcs_code) AS float) AS total_distinct_codes,
+	CAST(COUNT(DISTINCT provider_npi) AS float) AS total_distinct_providers,
+	CAST(ROUND(SUM(total_services * avg_submitted_charge),2) AS float) AS total_submitted,
+	CAST(ROUND(SUM(total_services * avg_medicare_allowed_amt),2) AS float) AS total_allowed,
+	CAST(ROUND(SUM(total_services * avg_medicare_payment_amt),2) AS float) AS total_paid
+FROM payment_information),
+initial_unpvt_cte AS (
 SELECT
-	'Medicare Participant' AS Category,
-	COUNT(*) AS total_rows,
-	SUM(total_services) AS total_services_counts,
-	COUNT(DISTINCT hcpcs_code) AS total_distinct_codes,
-	COUNT(DISTINCT pay.provider_npi) AS total_distinct_providers,
-	ROUND(SUM(total_services * avg_submitted_charge),2) AS total_submitted,
-	ROUND(SUM(total_services * avg_medicare_allowed_amt),2) AS total_allowed,
-	ROUND(SUM(total_services * avg_medicare_payment_amt),2) AS total_paid
+	count,
+	total
+FROM initial_cte
+UNPIVOT
+(
+	total FOR count IN (total_rows, total_services_counts, total_distinct_codes, total_distinct_providers,
+	total_submitted, total_allowed, total_paid)) unpvt),
+part_cte AS (
+SELECT
+	CAST(COUNT(*) AS float) AS total_rows,
+	CAST(SUM(total_services) AS float) AS total_services_counts,
+	CAST(COUNT(DISTINCT hcpcs_code) AS float) AS total_distinct_codes,
+	CAST(COUNT(DISTINCT pay.provider_npi) AS float) AS total_distinct_providers,
+	CAST(ROUND(SUM(total_services * avg_submitted_charge),2) AS float) AS total_submitted,
+	CAST(ROUND(SUM(total_services * avg_medicare_allowed_amt),2) AS float) AS total_allowed,
+	CAST(ROUND(SUM(total_services * avg_medicare_payment_amt),2) AS float) AS total_paid
 FROM payment_information pay
 INNER JOIN provider_information pro
 	ON pay.provider_npi = pro.provider_npi
-WHERE provider_medicare_participation = 'Y'
-UNION ALL
+WHERE provider_medicare_participation = 'Y'),
+part_unpvt_cte AS (
 SELECT
-	'Medicare Nonparticipant' AS Category,
-	COUNT(*) AS total_rows,
-	SUM(total_services) AS total_services_counts,
-	COUNT(DISTINCT hcpcs_code) AS total_distinct_codes,
-	COUNT(DISTINCT pay.provider_npi) AS total_distinct_providers,
-	ROUND(SUM(total_services * avg_submitted_charge),2) AS total_submitted,
-	ROUND(SUM(total_services * avg_medicare_allowed_amt),2) AS total_allowed,
-	ROUND(SUM(total_services * avg_medicare_payment_amt),2) AS total_paid
+	count,
+	participating
+FROM part_cte
+UNPIVOT
+(
+	participating FOR count IN (total_rows, total_services_counts, total_distinct_codes, total_distinct_providers,
+	total_submitted, total_allowed, total_paid)) unpvt),
+nonpart_cte AS(
+SELECT
+	CAST(COUNT(*) AS float) AS total_rows,
+	CAST(SUM(total_services) AS float) AS total_services_counts,
+	CAST(COUNT(DISTINCT hcpcs_code) AS float) AS total_distinct_codes,
+	CAST(COUNT(DISTINCT pay.provider_npi) AS float) AS total_distinct_providers,
+	CAST(ROUND(SUM(total_services * avg_submitted_charge),2) AS float) AS total_submitted,
+	CAST(ROUND(SUM(total_services * avg_medicare_allowed_amt),2) AS float) AS total_allowed,
+	CAST(ROUND(SUM(total_services * avg_medicare_payment_amt),2) AS float) AS total_paid
 FROM payment_information pay
 INNER JOIN provider_information pro
 	ON pay.provider_npi = pro.provider_npi
-WHERE provider_medicare_participation = 'N'
+WHERE provider_medicare_participation = 'N'),
+unpart_unpvt_cte AS (
+SELECT
+	count,
+	nonparticipating
+FROM nonpart_cte
+UNPIVOT
+(
+	nonparticipating FOR count IN (total_rows, total_services_counts, total_distinct_codes, total_distinct_providers,
+	total_submitted, total_allowed, total_paid)) unpvt)
+SELECT 
+	a.count, a.total, b.participating, c.nonparticipating
+FROM initial_unpvt_cte a
+INNER JOIN part_unpvt_cte b
+ON a.count = b.count 
+INNER JOIN unpart_unpvt_cte c
+ON a.count = c.count
 GO
 
 -- 2) states information (medicare participant) in the continental us including hawaii
