@@ -1,4 +1,4 @@
-#Query 1
+# Query 1
 
 |count                   |total          |participating  |nonparticipating|
 |------------------------|---------------|---------------|----------------|
