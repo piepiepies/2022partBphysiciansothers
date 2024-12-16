@@ -11,10 +11,10 @@ from providers that are Medicare participants, meaning that they are willing to 
 
 Files include:
 1) SQL code
-   * to upload the data to SQL server: **original_data_load.sql**
+   * to upload the data to SQL Server: **original_data_load.sql**
    * normalizing the data by distributing into multiple tables: **table_creation.sql**
    * updating the column types and creating primary/foreign keys: **keys_creation_types_changing.sql**
    * creating views for the queries: **decided views.sql**
-2) Database diagram from SQL server: **database diagram.PNG**
+2) Database diagram from SSMS: **database diagram.PNG**
 3) Query results
 4) Visualizations 
