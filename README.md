@@ -17,4 +17,4 @@ Files include:
    * creating views for the queries: **decided views.sql**
 2) Database diagram from SQL server: **database diagram.PNG**
 3) Query results
-4) visualizations 
+4) Visualizations 
