@@ -17,5 +17,4 @@ Files include:
    * updating the column types and creating primary/foreign keys: **keys_creation_types_changing.sql**
    * creating views for the queries: **decided views.sql**
 3) Database diagram from SQL server: **database diagram.PNG**
-4) Query results
-5) visualizations 
+4) Query results and visualizations 
