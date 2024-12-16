@@ -30,3 +30,4 @@ Summarization:
 
 # Query 2 - Spending per State
 
+![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/payment%20state.PNG?raw=true)
