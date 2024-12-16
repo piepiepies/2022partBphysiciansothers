@@ -26,3 +26,7 @@ Summarization:
   * total amount that Original Medicare Part B paid for Physicians and Others in the year 2022 was $89,029,606,711.96, which was
     about 9% of the total Medicare spending in the year 2022. This amount came from 1,147,953 individual providers.
   * Only a minimum amount of all submissions were from providers that did not accept the Medicare designated payment
+
+
+# Query 2 - Spending per State
+
