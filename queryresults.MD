@@ -71,7 +71,6 @@ FROM state_information
 |states_count_over_avg   |states_count_under_avg|
 |------------------------|----------------------|
 |16                      |35                    |
-
 The majority of the states were actually under the national average paid amount.
 
 Another quick query of the sum of total paid amounts of the top 4 vs. another sum of the rest shows that with the rest of the states.
@@ -86,7 +85,6 @@ FROM state_information
 |top_4_total_in_billions |the_rest_total_in_billions|
 |------------------------|--------------------------|
 |31.71                   |57.22                     |
-
 The other states combined to 57.22 billion dollars in total payment, 25.51 billion dollars more than the top 4 combined amount.
 
 
