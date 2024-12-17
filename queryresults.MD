@@ -65,14 +65,11 @@ California's total paid amount was over 10 times the national average state paid
 A quick query of the sum of total paid amounts of the top 4 vs. another sum of the rest shows that with the rest of the states.
 ````sql
 SELECT
-	ROUND(SUM(CASE 
-				WHEN provider_state IN ('CA', 'FL', 'TX', 'NY') 
-				THEN (state_total_paid)/1000000000.00 ELSE 0 END), 2) AS top_4_total_in_billions,
-	ROUND(SUM(CASE 
-				WHEN provider_state NOT IN ('CA', 'FL', 'TX', 'NY') 
-				THEN (state_total_paid)/1000000000.00 ELSE 0 END), 2) AS the_rest_total_in_billions
+	ROUND(SUM(CASE WHEN provider_state IN ('CA', 'FL', 'TX', 'NY') 
+		THEN (state_total_paid)/1000000000.00 ELSE 0 END), 2) AS top_4_total_in_billions,
+	ROUND(SUM(CASE WHEN provider_state NOT IN ('CA', 'FL', 'TX', 'NY') 
+		THEN (state_total_paid)/1000000000.00 ELSE 0 END), 2) AS the_rest_total_in_billions
 FROM state_information
-GO
 ````
 |top_4_total_in_billions |the_rest_total_in_billions|
 |------------------------|--------------------------|
