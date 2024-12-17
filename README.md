@@ -14,7 +14,7 @@ Files include:
    * to upload the data to SQL Server: **original_data_load.sql**
    * normalizing the data by distributing into multiple tables: **table_creation.sql**
    * updating the column types and creating primary/foreign keys: **keys_creation_types_changing.sql**
-   * creating views for the queries: **decided views.sql**
+   * creating views for the for further querying and visualizations: **decided views.sql**
 2) Database diagram from SSMS: **database diagram.PNG**
 3) Query results
 4) Visualizations 
