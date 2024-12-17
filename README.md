@@ -11,10 +11,9 @@ from providers that are Medicare participants, meaning that they are willing to 
 
 Files include:
 1) SQL code
-   * to upload the data to SQL Server: **original_data_load.sql**
-   * normalizing the data by distributing into multiple tables: **table_creation.sql**
-   * updating the column types and creating primary/foreign keys: **keys_creation_types_changing.sql**
-   * creating views for the for further querying and visualizations: **decided views.sql**
-2) Database diagram from SSMS: **database diagram.PNG**
-3) Query results
-4) Visualizations 
+   * to upload the data to SQL Server: [original_data_load.sql](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/original_data_load.sql)
+   * normalizing the data by distributing into multiple tables: [table_creation.sql](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/table_creation.sql)
+   * updating the column types and creating primary/foreign keys: [keys_creation_types_changing.sql](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/keys_creation_types_changing.sql)
+   * creating views for the for further querying and visualizations: [decided views.sql](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/decided%20views.sql)
+2) Database diagram from SSMS: [database diagram.PNG](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/database%20diagram.PNG)
+3) Query results 
