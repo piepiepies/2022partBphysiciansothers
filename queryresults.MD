@@ -28,7 +28,8 @@ Summarization:
     about 9% of the total Medicare spending in the year 2022. This amount came from 1,147,953 individual providers.
   * The counts of total and participating are almost the same, only a minimum amount of all submissions were from providers that 
     did not accept the Medicare designated payment
-
+Reminder: for the rest of the queries, the focus will be on the the payment data that falls under the participating column also within the 
+continental United States (including Hawaii)
 
 # 2 - Spending per State
 
