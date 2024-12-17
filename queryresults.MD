@@ -1,4 +1,5 @@
-# Reminder: This data is for Original Medicare Part B payments for physicians and others
+# Reminder: This data is for Original Medicare Part B payments for physicians and others, focusing on the submissions within the continental U.S.
+(including Hawaii) and accepting Medicare payments.
 # 1 - Exploratory
 
 |count                   |total          |participating  |nonparticipating|
@@ -11,7 +12,7 @@
 |total_allowed           |113035590246.62|113017521823.43|18068423.19     |
 |total_paid              |89042721381.01 |89029606711.96 |13114669.05     |
 
-The first query is for exploratory purposes The code is the first set of SQL code in the decided views file. 
+The first query is for exploratory purposes. The code is the first set of SQL code in the decided views file. 
 
 For clarification:
   * total_rows = the total number of rows in that were submitted
