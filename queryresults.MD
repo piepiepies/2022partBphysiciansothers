@@ -11,6 +11,7 @@
 |total_paid              |89042721381.01 |89029606711.96 |13114669.05     |
 
 The first query is for exploratory purposes The code is the first set of SQL code in the decided views file. 
+
 For clarification:
   * total_rows = the total number of rows in that were submitted
   * total_services_counts = the total number of all the services that were provided
@@ -32,3 +33,28 @@ Summarization:
 # Query 2 - Spending per State
 
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/payment%20state.PNG?raw=true)
+
+This table was generated with the second set of SQL code from the decided views file. The focus on the total amount that was paid
+to each state through Medicare Part B for the phyisicians and others services, the average amount between all the states, and the median amount.
+
+The top 4 states in terms of total payment are California, Florida, Texas, and NY in descending order.
+Through this query:
+SELECT
+	TOP 4
+	provider_state,
+	ROUND(state_total_paid/1000000000, 2) AS total_paid_in_billions,
+	ROUND(avg_total_paid/1000000000, 2) AS national_avg_in_billions,
+	ROUND(median_total_paid/1000000000,2 ) AS national_median_in_billions
+FROM state_information
+ORDER BY state_total_paid DESC
+
+|provider_state          |total_paid_in_billions|national_avg_in_billions|national_median_in_billions|
+|------------------------|----------------------|------------------------|---------------------------|
+|CA                      |10.67                 |1.74                    |1.02                       |
+|FL                      |8.32                  |1.74                    |1.02                       |
+|TX                      |6.47                  |1.74                    |1.02                       |
+|NY                      |6.24                  |1.74                    |1.02                       |
+
+
+You can see how each of the 4 states total payment amount compares to the national average and national median.
+California's total paid amount in 
