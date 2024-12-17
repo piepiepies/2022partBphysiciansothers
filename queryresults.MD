@@ -1,5 +1,5 @@
 # Reminder: This data is for Original Medicare Part B payments for physicians and others
-# Query 1 - Exploratory
+# 1 - Exploratory
 
 |count                   |total          |participating  |nonparticipating|
 |------------------------|---------------|---------------|----------------|
@@ -31,7 +31,7 @@ Summarization:
     did not accept the Medicare designated payment
 
 
-# Query 2 - Spending per State
+# 2 - Spending per State
 
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/payment%20state.PNG?raw=true)
 
@@ -59,4 +59,22 @@ ORDER BY state_total_paid DESC
 
 
 You can see how each of the 4 states total payment amount compares to the national average and national median.
-California's total paid amount in 
+California's total paid amount was over 10 times the national average state paid amount amongst the states.
+
+
+A quick query of the sum of total paid amounts of the top 4 vs. another sum of the rest shows that with the rest of the states.
+````sql
+SELECT
+	ROUND(SUM(CASE 
+				WHEN provider_state IN ('CA', 'FL', 'TX', 'NY') 
+				THEN (state_total_paid)/1000000000.00 ELSE 0 END), 2) AS top_4_total_in_billions,
+	ROUND(SUM(CASE 
+				WHEN provider_state NOT IN ('CA', 'FL', 'TX', 'NY') 
+				THEN (state_total_paid)/1000000000.00 ELSE 0 END), 2) AS the_rest_total_in_billions
+FROM state_information
+GO
+````
+|top_4_total_in_billions |the_rest_total_in_billions|
+|------------------------|--------------------------|
+|31.71                   |57.22                     |
+
