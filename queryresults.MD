@@ -1,4 +1,3 @@
-# Reminder: This data is for Original Medicare Part B payments for physicians and others, focusing on the submissions within the continental U.S (including Hawaii) and accepting Medicare payments.
 # 1 - Exploratory
 
 |count                   |total          |participating  |nonparticipating|
