@@ -40,7 +40,7 @@ to each state through Medicare Part B for the phyisicians and others services, t
 
 The top 4 states in terms of total payment are California, Florida, Texas, and NY in descending order.
 Through this query:
-''''sql
+````sql
 SELECT
 	TOP 4
 	provider_state,
@@ -49,7 +49,7 @@ SELECT
 	ROUND(median_total_paid/1000000000,2 ) AS national_median_in_billions
 FROM state_information
 ORDER BY state_total_paid DESC
-''''
+````
 |provider_state          |total_paid_in_billions|national_avg_in_billions|national_median_in_billions|
 |------------------------|----------------------|------------------------|---------------------------|
 |CA                      |10.67                 |1.74                    |1.02                       |
