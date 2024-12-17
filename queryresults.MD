@@ -10,7 +10,7 @@
 |total_allowed           |113035590246.62|113017521823.43|18068423.19     |
 |total_paid              |89042721381.01 |89029606711.96 |13114669.05     |
 
-The first query is for exploratory purposes. 
+The first query is for exploratory purposes The code is the first set of SQL code in the decided views file. 
 For clarification:
   * total_rows = the total number of rows in that were submitted
   * total_services_counts = the total number of all the services that were provided
