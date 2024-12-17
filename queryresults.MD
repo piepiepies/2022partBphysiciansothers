@@ -1,3 +1,4 @@
+# AS A REMINDER, THIS DATA IS FOR THE ORIGINAL MEDICARE PART B PAYMENT FOR PHYSICIANS AND OTHERS
 # Query 1 - Exploratory
 
 |count                   |total          |participating  |nonparticipating|
