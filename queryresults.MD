@@ -31,6 +31,9 @@ Summarization:
 
 Reminder: for the rest of the queries, the focus will be on the the payment data that falls under the participating column also within the continental United States (including Hawaii)
 
+***
+***
+
 # 2 - Spending per State
 
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/payment%20state.PNG?raw=true)
@@ -60,6 +63,7 @@ ORDER BY state_total_paid DESC
 You can see how each of the 4 states total payment amount compares to the national average and national median.
 California's total paid amount was over 10 times the national average state paid amount amongst the states.
 
+***
 
 A quick query of the amount of states that were over the national average payment and below the national average payment.
 ````sql
@@ -74,6 +78,7 @@ FROM state_information
 
 The majority of the states were actually under the national average paid amount.
 
+***
 
 Another quick query of the sum of total paid amounts of the top 4 vs. another sum of the rest shows that with the rest of the states.
 ````sql
@@ -90,4 +95,7 @@ FROM state_information
 
 The other states combined to 57.22 billion dollars in total payment, 25.51 billion dollars more than the top 4 combined amount.
 
+
+***
+***
 
