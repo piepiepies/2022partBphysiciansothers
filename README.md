@@ -16,4 +16,4 @@ Files include:
    * updating the column types and creating primary/foreign keys: [keys_creation_types_changing.sql](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/keys_creation_types_changing.sql)
    * creating views for the for further querying and visualizations: [decided views.sql](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/decided%20views.sql)
 2) Database diagram from SSMS: [database diagram.PNG](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/database%20diagram.PNG)
-3) Query results 
+3) Query results: [queryresults.MD](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/queryresults.MD) 
