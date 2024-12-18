@@ -126,14 +126,14 @@ ORDER BY entity_type ASC
 
 However, when querying for the top 15 providers in total paid amount in the continental U.S., the top 15 providers are actually all organization types.
 ````sql
-select
+SELECT
 	provider_last_name AS organization_name,
 	provider_type AS organization_type,
 	provider_state,
 	total_rows,
 	total_services_counts,
 	npi_total_paid
-from highest_providers
+FROM highest_providers
 ````
 |organization_name                                 |organization_type                             |provider_state|total_rows|total_services_counts|npi_total_paid|
 |--------------------------------------------------|----------------------------------------------|--------------|----------|---------------------|--------------|
@@ -158,3 +158,46 @@ As the table shows, all the organizations that were part of the top 15 paid high
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/wisconsin.PNG?raw=True)
 
 The Exact Sciences total paid, 0.27 billion dollars, accounts for 32% of the total paid amount of Wisconsin, 1.19 billion dollars.
+````sql
+SELECT
+	a.provider_last_name AS organization_name,
+	c.hcpcs_code AS only_submitted_hcpcs,
+	d.hcpcs_desc AS hcspcs_description,
+	a.total_services_counts AS organization_services_count,
+	b.state_total_services_counts AS state_total_services_count,
+	b.state_total_distinct_codes AS state_total_distinct_code
+FROM highest_providers a
+INNER JOIN state_information b
+	ON a.provider_state = b.provider_state
+		AND a.provider_state = 'WI'
+INNER JOIN payment_information c
+	ON a.provider_npi = c.provider_npi
+INNER JOIN hcpcs_information d
+	ON c.hcpcs_code = d.hcpcs_code
+````
+|organization_name               |only_submitted_hcpcs|hcspcs_description               |organization_services_count|state_total_services_count|state_total_distinct_code|
+|--------------------------------|--------------------|---------------------------------|---------------------------|--------------------------|-------------------------|
+|Exact Sciences Laboratories, Llc|81528               |Gene analysis (colorectal cancer)|533023                     |25212405                  |2419                     |
+
+````sql
+SELECT
+	a.provider_last_name AS organization_name,
+	c.hcpcs_code AS only_submitted_hcpcs,
+	d.hcpcs_desc AS hcspcs_description,
+	CAST(ROUND(1.00/b.state_total_distinct_codes * 100, 2) AS FLOAT) AS percentage_of_hcpcs,
+	ROUND(a.total_services_counts/b.state_total_services_counts * 100.00, 2) AS percentage_of_service_counts
+FROM highest_providers a
+INNER JOIN state_information b
+	ON a.provider_state = b.provider_state
+		AND a.provider_state = 'WI'
+INNER JOIN payment_information c
+	ON a.provider_npi = c.provider_npi
+INNER JOIN hcpcs_information d
+	ON c.hcpcs_code = d.hcpcs_code
+````
+|organization_name               |only_submitted_hcpcs|hcspcs_description               |percentage_of_hcpcs|percentage_of_service_counts|
+|--------------------------------|--------------------|---------------------------------|-------------------|----------------------------|
+|Exact Sciences Laboratories, Llc|81528               |Gene analysis (colorectal cancer)|0.04               |2.11                        |
+
+
+That 32% came from 1 HCPCS code in the 2419 distinct HCPCS that were submitted in Wisconsin for physicians and other services in 2022 that were accepting Medicare payments, which comes out to be 0.04%. The amount of times this services was submitted for payment for was 2.11% of all the service counts in this same payment category in Wisconsin in 2022.
