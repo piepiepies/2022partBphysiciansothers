@@ -3,10 +3,10 @@ This is a SQL project analyzing the Medicare Physician & Other Practitioners - b
 Description of the data taken from the website:
 Information on services and procedures provided to Original Medicare (fee-for-service) 
 Part B (Medical Insurance) beneficiaries by physicians and other healthcare professionals; aggregated by provider and service.
-This data is available on https://data.cms.gov/provider-summary-by-type-of-service/medicare-physician-other-practitioners/medicare-physician-other-practitioners-by-provider-and-service. I was not able to upload it on here because the CSV is 3GB, limit is 25MB
+This data is available on https://data.cms.gov/provider-summary-by-type-of-service/medicare-physician-other-practitioners/medicare-physician-other-practitioners-by-provider-and-service. I was not able to upload it on here because the CSV is 3GB, limit is 25MB. The data was imported into SQL Server via SSMS using SQL. The visualizations are screenshots from visualizations created on PowerBI after importing the views from the decided views.sql file.
 
 The focus of this project is on submissions for services on the continental US (including Hawaii) 
-from providers that are Medicare participants, meaning that they are willing to accept the payment amount dictated by Medicare.
+from providers that are Medicare participants, meaning that they are willing to accept the payment amount dictated by Medicare. 
 
 
 Files include:
