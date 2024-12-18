@@ -153,5 +153,8 @@ from highest_providers
 |Boston Scientific Cardiac Diagnostic Services, Llc|Independent Diagnostic Testing Facility (IDTF)|TX            |10        |169373               |80455900.36   |
 |Irhythm Technologies, Inc.                        |Independent Diagnostic Testing Facility (IDTF)|CA            |4         |331089               |78873148.92   |
 
-As the table shows, all the organizations that were part of the top 15 paid highest providers are some sort of testing facility/lab. For the state that these providers operate in, California came up the most, which is to be expected, since California was the top paid state. With that in mind, the top paid provider is actually from Wisconsin. From the visualization in part 2, Wisconsin was state whose total spending was lower than the national average.
+As the table shows, all the organizations that were part of the top 15 paid highest providers are some sort of testing facility/lab. For the state that these providers operate in, California came up the most, which is to be expected, since California was the top paid state. With that in mind, the top paid provider is actually from Wisconsin. From the visualization in part 2 earlier, Wisconsin was state whose total spending was lower than the national average.
+
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/wisconsin.PNG?raw=True)
+
+The Exact Sciences total paid, 0.27 billion dollars, accounts for 32% of the total paid amount of Wisconsin, 1.19 billion dollars.
