@@ -124,4 +124,5 @@ ORDER BY entity_type ASC
 |Individual  |9190970          |1904696224                  |5616                       |1080540                        |
 |Organization|538161           |610032904                   |2929                       |62915                          |
 
-However, when you query for the top 15 providers
+However, when you query for the top 15 providers in total paid amount in the continental U.S., the top 15 providers are actually all organization types.
+
