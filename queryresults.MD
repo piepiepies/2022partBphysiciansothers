@@ -1,4 +1,5 @@
 # 1 - Exploratory
+The 
 
 |count                   |total          |participating  |nonparticipating|
 |------------------------|---------------|---------------|----------------|
@@ -98,4 +99,9 @@ The other states combined to 57.22 billion dollars in total payment, 25.51 billi
 
 ***
 ***
+
+# 3 Spending by Provider Entity Type
+The following queries use the views third, fourth and fifth SQL codes in the decided views file.
+I wanted to look at the Medicare payments to providers who are categorized as individuals versus those of providers categorized as organizations.
+
 
