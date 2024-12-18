@@ -127,7 +127,7 @@ GROUP BY provider_entity_type
 GO
 
 -- 4) 15 highest paid providers in the continental us, including HI (medicare participant)
-CREATE VIEW highest_org AS
+CREATE VIEW highest_providers AS
 WITH npi_cte AS (
 SELECT
 	pay.provider_npi,
@@ -156,7 +156,7 @@ ORDER BY npi_total_paid DESC
 GO
 
 -- 5) 15 highest paid providers in the continental us, including HI (medicare participant) that are individuals
-CREATE VIEW highest_providers AS
+CREATE VIEW highest_indiv AS
 WITH npi_cte AS (
 SELECT
 	pay.provider_npi,
