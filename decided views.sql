@@ -126,7 +126,7 @@ WHERE provider_medicare_participation = 'Y'
 GROUP BY provider_entity_type
 GO
 
--- 4) 15 highest paid providers in the continental us, including HI (medicare participant) that organization
+-- 4) 15 highest paid providers in the continental us, including HI (medicare participant)
 CREATE VIEW highest_org AS
 WITH npi_cte AS (
 SELECT
