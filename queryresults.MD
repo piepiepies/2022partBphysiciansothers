@@ -124,5 +124,34 @@ ORDER BY entity_type ASC
 |Individual  |9190970          |1904696224                  |5616                       |1080540                        |
 |Organization|538161           |610032904                   |2929                       |62915                          |
 
-However, when you query for the top 15 providers in total paid amount in the continental U.S., the top 15 providers are actually all organization types.
+However, when querying for the top 15 providers in total paid amount in the continental U.S., the top 15 providers are actually all organization types.
+````sql
+select
+	provider_last_name AS organization_name,
+	provider_type AS organization_type,
+	provider_state,
+	total_rows,
+	total_services_counts,
+	npi_total_paid
+from highest_providers
+````
+|organization_name                                 |organization_type                             |provider_state|total_rows|total_services_counts|npi_total_paid|
+|--------------------------------------------------|----------------------------------------------|--------------|----------|---------------------|--------------|
+|Exact Sciences Laboratories, Llc                  |Clinical Laboratory                           |WI            |1         |533023               |267646839     |
+|Laboratory Corporation Of America Holdings        |Clinical Laboratory                           |NC            |657       |16218146             |221327954.3   |
+|Care Dx, Inc.                                     |Clinical Laboratory                           |CA            |2         |61076                |174087958.6   |
+|Laboratory Corporation Of America Holdings        |Clinical Laboratory                           |NJ            |625       |10835521             |131552863.2   |
+|Guardant Health, Inc.                             |Clinical Laboratory                           |CA            |5         |31190                |129973918.6   |
+|Quest Diagnostics Incorporated                    |Clinical Laboratory                           |NJ            |637       |9087471              |112350341.2   |
+|Genomic Health, Inc.                              |Clinical Laboratory                           |CA            |8         |28784                |108512222.7   |
+|Cardionet, Llc.                                   |Independent Diagnostic Testing Facility (IDTF)|CA            |5         |231540               |103610394     |
+|Quest Diagnostics Clinical Laboratories Inc       |Clinical Laboratory                           |FL            |631       |8679973              |103112492     |
+|Unilab Corporation                                |Clinical Laboratory                           |CA            |609       |7686331              |94459064.62   |
+|Walgreen Co                                       |Centralized Flu                               |CO            |27        |4058537              |94271190.74   |
+|Natera, Inc.                                      |Clinical Laboratory                           |CA            |3         |27128                |93177424.18   |
+|Foundation Medicine, Inc.                         |Clinical Laboratory                           |MA            |4         |34323                |86855812.72   |
+|Boston Scientific Cardiac Diagnostic Services, Llc|Independent Diagnostic Testing Facility (IDTF)|TX            |10        |169373               |80455900.36   |
+|Irhythm Technologies, Inc.                        |Independent Diagnostic Testing Facility (IDTF)|CA            |4         |331089               |78873148.92   |
 
+As the table shows, all the organizations that were part of the top 15 paid highest providers are some sort of testing facility/lab. For the state that these providers operate in, California came up the most, which is to be expected, since California was the top paid state. With that in mind, the top paid provider is actually from Wisconsin. From the visualization in part 2, Wisconsin was state whose total spending was lower than the national average.
+![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/wisconsin.PNG?raw=True)
