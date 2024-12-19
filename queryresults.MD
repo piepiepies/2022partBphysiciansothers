@@ -101,7 +101,7 @@ The other states combined to 57.22 billion dollars in total payment, 25.51 billi
 
 # 3 Spending by Provider Entity Type
 
-The following analysis uses the views third, fourth and fifth SQL codes in the decided views file.
+The following analysis uses the views third, fourth and fifth sets of SQL codes in the decided views file.
 
 I wanted to look at the Medicare payments to providers who are categorized as individuals versus those of providers categorized as organizations.
 
@@ -278,3 +278,54 @@ ORDER BY 6 DESC, 5 DESC
 |Don                |Coleman           |K1034               |Provision of covid-19 test, nonprescription self-administered and self-collected use, fda approved, authorized or cleared, one test count|4229406       |49747199.04     |
 
 Looking at Dr.Coleman's HCPCS submissions, 4 out of the HCPCS codes submitted were related to emergency and critical care, with the top paid amount for critical care. But it's interesting to point out that the amount of COVID 19 services test submitted for payment was much greater than the total services amounts of the other 4 HCPCS codes.
+
+***
+
+````sql
+SELECT
+	'Organizations' AS category,
+	ROUND(SUM(npi_total_paid)/1000000000, 2) AS organizational_total_in_billions
+FROM highest_providers
+UNION ALL 
+SELECT
+	'Individuals' AS category,
+	ROUND(SUM(npi_total_paid)/1000000000, 2) AS individual_total_in_billions
+FROM highest_indiv
+````
+
+|category     |organizational_total_in_billions|
+|-------------|--------------------------------|
+|Organizations|1.88                            |
+|Individuals  |0.26                            |
+
+The total amount paid to the top 15 organizational providers is around 7 times that of that of the top 15 individuals, while the total amount that all individual providers received in payments from Medicare is over 3 times that of all organization providers. 
+
+***
+***
+
+# Spending by Specialty Groups and HCPCS codes
+
+The following analysis uses the views sixth, seventh and 8th sets of SQL codes in the decided views file.
+
+I wanted to take a look at the amount paid to PCPs versus that of other groups (refer to the 6th set of SQL codes in the decided view file on how specialties are grouped). 
+Disclaimer: I categorized these specialties into the groups below to the best of my knowledge, I could not find a reputable source that is all encompassing on grouping these specialties into more colloquial categories.
+
+````sql
+SELECT
+	grouped_provider_type,
+	npi_total_rows,
+	npi_total_services_counts,
+	npi_total_distinct_codes,
+	ROUND(npi_total_paid/1000000000, 4) AS total_paid_in_billions
+FROM type_groups
+ORDER BY npi_total_paid DESC
+````
+|grouped_provider_type|npi_total_rows|npi_total_services_counts|npi_total_distinct_codes|total_paid_in_billions|
+|---------------------|--------------|-------------------------|------------------------|----------------------|
+|Specialist           |5780293       |1559612663               |5499                    |60.9352               |
+|PCP                  |2578662       |349703527                |2935                    |15.8249               |
+|Lab                  |210302        |369595002                |1857                    |8.0598                |
+|Radiology            |1143376       |194643306                |1143                    |3.7099                |
+|Pharmacy/Supplier    |16498         |41174630                 |128                     |0.3956                |
+
+Providers who can be categoried PCPs were paid close to 16 billion dollars, around 25% of the total paid amount to those that can be categorized as specialists.
