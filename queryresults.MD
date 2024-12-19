@@ -130,12 +130,14 @@ However, when querying for the top 15 providers in total paid amount in the cont
 ````sql
 SELECT
 	provider_last_name AS organization_name,
+	CASE WHEN provider_entity_type = 'I' THEN 'Individual' ELSE 'Organization' END AS provider_type,
 	provider_type AS organization_type,
 	provider_state,
 	total_rows,
 	total_services_counts,
 	npi_total_paid
 FROM highest_providers
+ORDER BY npi_total_paid DESC
 ````
 |organization_name                                 |organization_type                             |provider_state|total_rows|total_services_counts|npi_total_paid|
 |--------------------------------------------------|----------------------------------------------|--------------|----------|---------------------|--------------|
@@ -207,3 +209,9 @@ INNER JOIN hcpcs_information d
 
 
 That 32% came from 1 HCPCS code in the 2419 distinct HCPCS that were submitted in Wisconsin for physicians and other services in 2022 that were accepting Medicare payments. The amount of times this services was submitted for payment for was 2.11% of all the service counts in this same payment category in Wisconsin in 2022. To summarize, 32% of all the Original Medicare Part B payments to physicians and others in Wisconsin in 2022 was to one laboratory for one distinct service, gene analysis, which accounted for 2.11% of all services submissions.
+
+***
+
+````sql
+
+````
