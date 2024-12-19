@@ -213,5 +213,34 @@ That 32% came from 1 HCPCS code in the 2419 distinct HCPCS that were submitted i
 ***
 
 ````sql
-
+SELECT
+	provider_first_name,
+	provider_last_name,
+	provider_type AS specialty,
+	provider_state,
+	total_rows,
+	total_services_counts,
+	npi_total_paid
+FROM highest_indiv
+ORDER BY npi_total_paid DESC
+GO
 ````
+|provider_first_name             |provider_last_name|specialty                        |provider_state|total_rows|total_services_counts|npi_total_paid|
+|--------------------------------|------------------|---------------------------------|--------------|----------|---------------------|--------------|
+|Don                             |Coleman           |Emergency Medicine               |MD            |5         |4230204              |49850665.46   |
+|Allyson                         |Pizzo-Berkey      |Pain Management                  |CA            |17        |111227               |44568817.8    |
+|Norris                          |Morrison          |Podiatry                         |CA            |12        |32969                |19777835.57   |
+|Owen                            |Ellington         |Internal Medicine                |TX            |18        |37374                |17823063.86   |
+|Carl                            |Seger             |General Practice                 |KY            |4         |1197357              |14084335.84   |
+|Robert                          |Brennan           |Infectious Disease               |VA            |40        |933384               |13989836.83   |
+|Ryan                            |Olson             |Pathology                        |FL            |104       |758579               |13517167.13   |
+|Nicholas                        |Bai               |Physician Assistant              |CA            |7         |22399                |11529948.7    |
+|Johnson                         |Lee               |Plastic and Reconstructive Surgery|CA            |39        |29608                |11345026.11   |
+|Christopher                     |Otiko             |Podiatry                         |CA            |26        |72382                |10704888.4    |
+|Wright                          |Lauten            |Ophthalmology                    |MS            |27        |65464                |10679928.53   |
+|Stephen                         |Dubin             |General Practice                 |NV            |21        |22735                |10678730.34   |
+|David                           |Chess             |Geriatric Medicine               |CT            |12        |200195               |10557648.71   |
+|George                          |Vito              |Podiatry                         |NY            |14        |28492                |10510876.72   |
+|Sunil                           |Gupta             |Ophthalmology                    |FL            |26        |54305                |10465420.83   |
+
+Just a quick look at the top 15 individual providers. 
