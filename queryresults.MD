@@ -244,4 +244,9 @@ GO
 |George                          |Vito              |Podiatry                         |NY            |14        |28492                |10510876.72   |
 |Sunil                           |Gupta             |Ophthalmology                    |FL            |26        |54305                |10465420.83   |
 
-Just a quick look at the top 15 individual providers. 
+Just a quick look at the top 15 individual providers:
+* California is the state that comes up the most where the services are provided.
+* Within the top 5 most paid individual providers, 3 of them are in the top 4 highest paid states.
+* The 4th and 5th providers are internal medicine and general practice, which are considered Primary Care Physicians (PCP).
+* The 1st and 2nd highest paid providers do have similar paid amounts and both of those amounts are drastically higher than the rest.
+
