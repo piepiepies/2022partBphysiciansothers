@@ -250,3 +250,31 @@ Just a quick look at the top 15 individual providers:
 * The 4th and 5th providers are internal medicine and general practice, which are considered Primary Care Physicians (PCP).
 * The 1st and 2nd highest paid providers do have similar paid amounts and both of those amounts are drastically higher than the rest.
 
+***
+
+````sql
+SELECT
+	provider_first_name,
+	provider_last_name,
+	c.hcpcs_code AS only_submitted_hcpcs,
+	c.hcpcs_desc AS hcspcs_description,
+	b.total_services AS services_count,
+	ROUND(SUM(a.total_services_counts * avg_medicare_payment_amt),2) AS hcpcs_total_paid
+FROM highest_indiv a
+INNER JOIN payment_information b
+	ON a.provider_npi = b.provider_npi
+INNER JOIN hcpcs_information c
+	ON b.hcpcs_code = c.hcpcs_code
+WHERE a.provider_npi = 1740270347
+GROUP BY provider_first_name, provider_last_name, c.hcpcs_code, c.hcpcs_desc, b.total_services
+ORDER BY 6 DESC, 5 DESC
+````
+|provider_first_name|provider_last_name|only_submitted_hcpcs|hcspcs_description                                                                                                                       |services_count|hcpcs_total_paid|
+|-------------------|------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------|--------------|----------------|
+|Don                |Coleman           |99291               |Critical care, first 30-74 minutes                                                                                                       |39            |862411689.48    |
+|Don                |Coleman           |99285               |Emergency department visit for life threatening or functioning severity                                                                  |454           |686308296.96    |
+|Don                |Coleman           |99284               |Emergency department visit for problem of high severity                                                                                  |287           |442944660.84    |
+|Don                |Coleman           |99283               |Emergency department visit for problem of moderate severity                                                                              |18            |279954900.72    |
+|Don                |Coleman           |K1034               |Provision of covid-19 test, nonprescription self-administered and self-collected use, fda approved, authorized or cleared, one test count|4229406       |49747199.04     |
+
+Looking at Dr.Coleman's HCPCS submissions, 4 out of the HCPCS codes submitted were related to emergency and critical care, with the top paid amount for critical care. But it's interesting to point out that the amount of COVID 19 services test submitted for payment was much greater than the total services amounts of the other 4 HCPCS codes.
