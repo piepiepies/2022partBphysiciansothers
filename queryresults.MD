@@ -124,6 +124,8 @@ ORDER BY entity_type ASC
 |Individual  |9190970          |1904696224                  |5616                       |1080540                        |
 |Organization|538161           |610032904                   |2929                       |62915                          |
 
+***
+
 However, when querying for the top 15 providers in total paid amount in the continental U.S., the top 15 providers are actually all organization types.
 ````sql
 SELECT
@@ -155,6 +157,8 @@ FROM highest_providers
 
 As the table shows, all the organizations that were part of the top 15 paid highest providers are some sort of testing facility/lab. For the state that these providers operate in, California came up the most, which is to be expected, since California was the top paid state. With that in mind, the top paid provider is actually from Wisconsin. From the visualization in part 2 earlier, Wisconsin was state whose total spending was lower than the national average.
 
+***
+
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/wisconsin.PNG?raw=True)
 
 The Exact Sciences total paid, 0.27 billion dollars, accounts for 32% of the total paid amount of Wisconsin, 1.19 billion dollars.
@@ -178,6 +182,8 @@ INNER JOIN hcpcs_information d
 |organization_name               |only_submitted_hcpcs|hcspcs_description               |organization_services_count|state_total_services_count|state_total_distinct_code|
 |--------------------------------|--------------------|---------------------------------|---------------------------|--------------------------|-------------------------|
 |Exact Sciences Laboratories, Llc|81528               |Gene analysis (colorectal cancer)|533023                     |25212405                  |2419                     |
+
+***
 
 ````sql
 SELECT
