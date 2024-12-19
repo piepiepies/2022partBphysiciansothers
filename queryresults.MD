@@ -328,4 +328,4 @@ ORDER BY npi_total_paid DESC
 |Radiology            |1143376       |194643306                |1143                    |3.7099                |
 |Pharmacy/Supplier    |16498         |41174630                 |128                     |0.3956                |
 
-Providers who can be categoried PCPs were paid close to 16 billion dollars, around 25% of the total paid amount to those that can be categorized as specialists.
+Providers who can be categoried PCPs were paid close to 16 billion dollars, around 26% of the total paid amount to those that can be categorized as specialists.
