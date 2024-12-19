@@ -106,6 +106,7 @@ The following analysis uses the views third, fourth and fifth SQL codes in the d
 I wanted to look at the Medicare payments to providers who are categorized as individuals versus those of providers categorized as organizations.
 
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/individual%20vs%20provider%20total%20spending.PNG?raw=true)
+
 The total amount that individual providers received in payments from Medicare is over 3 times that of organization providers.
 The total amount of services that were submitted and the amount of providers that submitted also reflect that as well.
 
