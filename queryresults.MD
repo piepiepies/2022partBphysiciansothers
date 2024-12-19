@@ -307,7 +307,8 @@ The total amount paid to the top 15 organizational providers is around 7 times t
 
 The following analysis uses the views sixth, seventh and 8th sets of SQL codes in the decided views file.
 
-I wanted to take a look at the amount paid to PCPs versus that of other groups (refer to the 6th set of SQL codes in the decided view file on how specialties are grouped). 
+I wanted to take a look at the amount paid to PCPs versus that of other groups (refer to the 6th set of SQL codes in the decided view file on how specialties are grouped).
+
 Disclaimer: I categorized these specialties into the groups below to the best of my knowledge, I could not find a reputable source that is all encompassing on grouping these specialties into more colloquial categories.
 
 ````sql
