@@ -305,7 +305,7 @@ The total amount paid to the top 15 organizational providers is around 7 times t
 
 # Spending by Specialty Groups and HCPCS codes
 
-The following analysis uses the views sixth, seventh and 8th sets of SQL codes in the decided views file.
+The following analysis uses the views sixth, seventh and eighth sets of SQL codes in the decided views file.
 
 I wanted to take a look at the amount paid to PCPs versus that of other groups (refer to the 6th set of SQL codes in the decided view file on how specialties are grouped).
 
@@ -330,3 +330,36 @@ ORDER BY npi_total_paid DESC
 |Pharmacy/Supplier    |16498         |41174630                 |128                     |0.3956                |
 
 Providers who can be categoried PCPs were paid close to 16 billion dollars, around 26% of the total paid amount to those that can be categorized as specialists.
+
+***
+
+````sql
+SELECT
+	hcpcs_code,
+	hcpcs_desc,
+	hcpcs_drug_indicator,
+	total_services_counts,
+	RANK() OVER (ORDER BY total_services_counts DESC) AS services_count_rank,
+	hcpcs_avg_medicare_payment,
+	RANK() OVER (ORDER BY hcpcs_avg_medicare_payment DESC) AS avg_payment_rank,
+	ROUND(hcpcs_total_paid/1000000, 2) AS hcspcs_total_paid_in_millions
+FROM highest_hcpcs
+ORDER BY 8 DESC
+````
+|hcpcs_code|hcpcs_desc                                                                                                                                       |hcpcs_drug_indicator|total_services_counts|services_count_rank|hcpcs_avg_medicare_payment|avg_payment_rank|hcspcs_total_paid_in_millions|
+|----------|-------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|---------------------|-------------------|--------------------------|----------------|-----------------------------|
+|K1034     |Provision of covid-19 test, nonprescription self-administered and self-collected use, fda approved, authorized or cleared, one test count        |N                   |46498790             |1                  |11.76                     |12              |546.83                       |
+|81528     |Gene analysis (colorectal cancer)                                                                                                                |N                   |533023               |10                 |502.13                    |6               |267.65                       |
+|81479     |Molecular pathology procedure                                                                                                                    |N                   |51366                |12                 |2787.07                   |4               |143.16                       |
+|93229     |Electrocardiogram (ecg) up to 30 days continuous with transmission of patient triggered events with review and report by health care professional|N                   |101006               |11                 |946.08                    |5               |95.56                        |
+|90662     |Influenza vaccine split virus, preservative free                                                                                                 |Y                   |1392513              |9                  |68.54                     |7               |95.44                        |
+|80053     |Blood test, comprehensive group of blood chemicals                                                                                               |N                   |9152329              |4                  |10.42                     |13              |95.37                        |
+|81519     |Test for detecting genes associated with breast cancer                                                                                           |N                   |24493                |14                 |3806.33                   |2               |93.23                        |
+|85025     |Complete blood cell count (red cells, white blood cell, platelets), automated test and automated differential white blood cell count             |N                   |12041528             |3                  |7.67                      |14              |92.36                        |
+|84443     |Blood test, thyroid stimulating hormone (tsh)                                                                                                    |N                   |5403525              |6                  |16.58                     |10              |89.59                        |
+|36415     |Insertion of needle into vein for collection of blood sample                                                                                     |N                   |29150061             |2                  |2.96                      |15              |86.28                        |
+|J2777     |Injection, faricimab-svoa, 0.1 mg                                                                                                                |Y                   |2828361              |8                  |29.84                     |8               |84.4                         |
+|81479     |Molecular pathology procedure                                                                                                                    |N                   |24734                |13                 |3400.64                   |3               |84.11                        |
+|0242U     |Gene analysis of 55-74 genes associated with solid organ cancer in cell-free circulating dna, targeted genomic sequence analysis panel           |N                   |16304                |15                 |4935.87                   |1               |80.47                        |
+|80061     |Blood test, lipids (cholesterol and triglycerides)                                                                                               |N                   |5583679              |5                  |13.22                     |11              |73.82                        |
+|84443     |Blood test, thyroid stimulating hormone (tsh)                                                                                                    |N                   |4291995              |7                  |16.59                     |9               |71.2                         |
