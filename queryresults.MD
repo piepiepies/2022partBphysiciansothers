@@ -375,7 +375,7 @@ ORDER BY hcpcs_total_paid DESC
 ````
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/outpatient%20query.PNG?raw=True)
 
-Amongst the outpatient visit codes, 99214 is the most serviced and highest paid, $8.13 billion in total. The top two highest paid outpatient codes are both that for estabilished.
+Amongst the outpatient visit codes, 99214 is the most serviced and highest paid, $8.13 billion in total. The top two highest paid outpatient codes are both for established/existing patients. The top average payment, however, is for a new patient visit code. 99215 at $156.0579 per service count.
 
 ***
 
@@ -392,3 +392,27 @@ FROM outpatient_visit_information
 |2.34                              |14.04                                  |
 
 I excluded the code G2212 from this query because it's ambiguous if it was for existing or new patients; as per the previous query, the amount is negligible compared to the other amounts. The total paid amount for existing patient visits was around 6 times that of new patient visits. 
+
+
+***
+
+Lastly, I would like to look at the paid amount categorized by time for the outpatient visit codes. I wanted to do 15 minute intervals, but the some of the codes were not set up for 15 minute interval time frames. I decided on less than 30 minutes and 30 minutes or more.
+
+
+```sql
+SELECT
+	CASE WHEN hcpcs_code IN ('99211', '99213', '99212', '99202') 
+	THEN 'Less than 30 minutes' ELSE '30 minutes or longer' END AS visit_time,
+	SUM(total_services_counts) AS total_services_counts,
+	SUM(ROUND(hcpcs_total_paid/1000000000, 2)) AS hcpcs_total_paid_in_billions
+FROM outpatient_visit_information
+GROUP BY CASE WHEN hcpcs_code IN ('99211', '99213', '99212', '99202') 
+	THEN 'Less than 30 minutes' ELSE '30 minutes or longer' END
+````
+
+|visit_time          |total_services_counts|hcpcs_total_paid_in_billions|
+|--------------------|---------------------|----------------------------|
+|30 minutes or longer|130089808            |11.7                        |
+|Less than 30 minutes|82874282             |4.69                        |
+
+The outpatient visits that were less than 30 minutes had a paid amount that is 40% the amount for 30 minutes or longer.
