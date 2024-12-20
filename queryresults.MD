@@ -360,4 +360,27 @@ The most paid HCPCS code is K1034, COVID 19 test, with $546.83 millions paid out
 
 ***
 
-For the last part of this project, I wanted to look at outpatient visit codes. ('99202', '99203', '99204', '99205', '99211', '99212', '99213', '99214', '99215', 'G2212', '99417')
+For the last part of this project, I wanted to look at outpatient visit codes. ('99202', '99203', '99204', '99205', '99211', '99212', '99213', '99214', '99215', 'G2212', '99417'). More information about these codes can be found on [link](https://www.facs.org/for-medical-professionals/practice-management/coding-and-billing/em-coding-billing/officeoutpatient-em-visit-coding-changes/officeoutpatient-em-codes/).
+
+````sql
+SELECT
+	hcpcs_code,
+	hcpcs_desc,
+	total_services_counts,
+	hcpcs_avg_medicare_payment,
+	ROUND(hcpcs_total_paid/1000000000, 2) AS hcpcs_total_paid_in_billions
+FROM outpatient_visit_information
+ORDER BY hcpcs_total_paid DESC
+````
+|hcpcs_code|hcpcs_desc                                                                                                                                                                                                                                                     |total_services_counts|hcpcs_avg_medicare_payment|hcpcs_total_paid_in_billions|
+|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|--------------------------|----------------------------|
+|99214     |Established patient office or other outpatient visit, 30-39 minutes                                                                                                                                                                                            |97135858             |81.1957                   |8.13                        |
+|99213     |Established patient office or other outpatient visit, 20-29 minutes                                                                                                                                                                                            |72203380             |57.0763                   |4.31                        |
+|99204     |New patient office or other outpatient visit, 45-59 minutes                                                                                                                                                                                                    |11180579             |111.7687                  |1.28                        |
+|99215     |Established patient office or other outpatient visit, 40-54 minutes                                                                                                                                                                                            |10331334             |120.5084                  |1.27                        |
+|99203     |New patient office or other outpatient visit, 30-44 minutes                                                                                                                                                                                                    |8672784              |71.9593                   |0.64                        |
+|99205     |New patient office or other outpatient visit, 60-74 minutes                                                                                                                                                                                                    |2355321              |156.0579                  |0.37                        |
+|99212     |Established patient office or other outpatient visit, 10-19 minutes                                                                                                                                                                                            |7277778              |36.7051                   |0.28                        |
+|99202     |New patient office or other outpatient visit, 15-29 minutes                                                                                                                                                                                                    |946919               |47.6114                   |0.05                        |
+|99211     |Office or other outpatient visit for the evaluation and management of established patient that may not require presence of healthcare professional                                                                                                             |2446205              |17.2309                   |0.05                        |
+|G2212     |Prolonged office or other outpatient evaluation and management service(s) beyond the maximum required time of the primary procedure which has been selected using total time on the date of the primary service; each additional 15 minutes by the physician or|413932               |24.9136                   |0.01                        |
