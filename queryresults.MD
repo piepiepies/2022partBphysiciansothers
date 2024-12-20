@@ -127,10 +127,8 @@ ORDER BY entity_type ASC
 
 ***
 
-However, when querying for the top 15 providers in total paid amount in the continental U.S., the top 15 providers are actually all organization types. For the sake of visibility, I have only oncluded the top 8
 ````sql
 SELECT
-	TOP 8
 	provider_last_name AS organization_name,
 	CASE WHEN provider_entity_type = 'I' THEN 'Individual' ELSE 'Organization' END AS provider_type,
 	provider_type AS organization_type,
@@ -141,16 +139,23 @@ SELECT
 FROM highest_providers
 ORDER BY npi_total_paid DESC
 ````
-|organization_name                         |provider_type|organization_type                             |provider_state|total_rows|total_services_counts|npi_total_paid|
-|------------------------------------------|-------------|----------------------------------------------|--------------|----------|---------------------|--------------|
-|Exact Sciences Laboratories, Llc          |Organization |Clinical Laboratory                           |WI            |1         |533023               |267646838.99  |
-|Laboratory Corporation Of America Holdings|Organization |Clinical Laboratory                           |NC            |657       |16218146             |221327954.28  |
-|Care Dx, Inc.                             |Organization |Clinical Laboratory                           |CA            |2         |61076                |174087958.62  |
-|Laboratory Corporation Of America Holdings|Organization |Clinical Laboratory                           |NJ            |625       |10835521             |131552863.18  |
-|Guardant Health, Inc.                     |Organization |Clinical Laboratory                           |CA            |5         |31190                |129973918.61  |
-|Quest Diagnostics Incorporated            |Organization |Clinical Laboratory                           |NJ            |637       |9087471              |112350341.24  |
-|Genomic Health, Inc.                      |Organization |Clinical Laboratory                           |CA            |8         |28784                |108512222.67  |
-|Cardionet, Llc.                           |Organization |Independent Diagnostic Testing Facility (IDTF)|CA            |5         |231540               |103610394.02  |
+|organization_name                                 |provider_type|organization_type                             |provider_state|total_rows|total_services_counts|npi_total_paid|
+|--------------------------------------------------|-------------|----------------------------------------------|--------------|----------|---------------------|--------------|
+|Exact Sciences Laboratories, Llc                  |Organization |Clinical Laboratory                           |WI            |1         |533023               |267646838.99  |
+|Laboratory Corporation Of America Holdings        |Organization |Clinical Laboratory                           |NC            |657       |16218146             |221327954.28  |
+|Care Dx, Inc.                                     |Organization |Clinical Laboratory                           |CA            |2         |61076                |174087958.62  |
+|Laboratory Corporation Of America Holdings        |Organization |Clinical Laboratory                           |NJ            |625       |10835521             |131552863.18  |
+|Guardant Health, Inc.                             |Organization |Clinical Laboratory                           |CA            |5         |31190                |129973918.61  |
+|Quest Diagnostics Incorporated                    |Organization |Clinical Laboratory                           |NJ            |637       |9087471              |112350341.24  |
+|Genomic Health, Inc.                              |Organization |Clinical Laboratory                           |CA            |8         |28784                |108512222.67  |
+|Cardionet, Llc.                                   |Organization |Independent Diagnostic Testing Facility (IDTF)|CA            |5         |231540               |103610394.02  |
+|Quest Diagnostics Clinical Laboratories Inc       |Organization |Clinical Laboratory                           |FL            |631       |8679973              |103112491.98  |
+|Unilab Corporation                                |Organization |Clinical Laboratory                           |CA            |609       |7686331              |94459064.62   |
+|Walgreen Co                                       |Organization |Centralized Flu                               |CO            |27        |4058537              |94271190.74   |
+|Natera, Inc.                                      |Organization |Clinical Laboratory                           |CA            |3         |27128                |93177424.18   |
+|Foundation Medicine, Inc.                         |Organization |Clinical Laboratory                           |MA            |4         |34323                |86855812.72   |
+|Boston Scientific Cardiac Diagnostic Services, Llc|Organization |Independent Diagnostic Testing Facility (IDTF)|TX            |10        |169373               |80455900.36   |
+|Irhythm Technologies, Inc.                        |Organization |Independent Diagnostic Testing Facility (IDTF)|CA            |4         |331089               |78873148.92   |
 
 
 As the table shows, all the organizations that were part of the top 15 paid highest providers are some sort of testing facility/lab. For the state that these providers operate in, California came up the most, which is to be expected, since California was the top paid state. With that in mind, the top paid provider is actually from Wisconsin. From the visualization in part 2 earlier, Wisconsin was state whose total spending was lower than the national average.
