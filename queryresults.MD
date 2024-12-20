@@ -333,7 +333,7 @@ Providers who can be categoried PCPs were paid close to 16 billion dollars, arou
 
 ***
 
-I will just be showing the visualizations for the query below because visibility is an issue when posting the the query table on Github.
+I will just be showing the screenshot for the query below because visibility is an issue when posting the the query table on Github.
 
 Query is ordered by the total amount that each of the 15 highest paid HCPCS were paid by Medicare. I also included two separate columns, one for total amount of services count and average payment per HCPCS; both are ordered by descending order.
 
@@ -351,3 +351,4 @@ SELECT
 FROM highest_hcpcs
 ORDER BY 8 DESC
 ````
+![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/highest_views%20query.PNG?raw=True)
