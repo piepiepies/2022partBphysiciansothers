@@ -209,7 +209,7 @@ INNER JOIN hcpcs_information d
 |Exact Sciences Laboratories, Llc|81528               |Gene analysis (colorectal cancer)|0.04               |2.11                        |
 
 
-That 32% came from 1 HCPCS code in the 2419 distinct HCPCS that were submitted in Wisconsin for physicians and other services in 2022 that were accepting Medicare payments. The amount of times this services was submitted for payment for was 2.11% of all the service counts in this same payment category in Wisconsin in 2022. To summarize, 32% of all the Original Medicare Part B payments to physicians and others in Wisconsin in 2022 was to one laboratory for one distinct service, gene analysis, which accounted for 2.11% of all services submissions.
+That 32% came from 1 HCPCS code in the 2419 distinct HCPCS that were submitted in Wisconsin for physicians and other services in 2022 that were accepting Medicare payments. The amount of times this services was submitted for payment for was 2.11% of all the service counts in this same payment category in Wisconsin in 2022. To summarize, 32% of all the Original Medicare Part B payments to physicians and others in Wisconsin in 2022 was to one laboratory for one distinct service, gene analysis (colorectal cancer), which accounted for 2.11% of all services submissions.
 
 ***
 
@@ -335,11 +335,10 @@ Providers who can be categoried PCPs were paid close to 16 billion dollars, arou
 
 I will just be showing the screenshot for the query below because visibility is an issue when posting the the query table on Github.
 
-Query is ordered by the total amount that each of the 15 highest paid HCPCS were paid by Medicare. I also included two separate columns, one for total amount of services count and average payment per HCPCS; both are ordered by descending order.
+Query is ordered by the total amount that each of the 15 highest paid HCPCS codes were paid by Medicare. I also included two separate columns, one for total amount of services count and average payment per HCPCS code; both are ordered by descending order.
 
 ````sql
 SELECT
-	TOP 3
 	hcpcs_code,
 	hcpcs_desc,
 	hcpcs_drug_indicator,
@@ -352,3 +351,13 @@ FROM highest_hcpcs
 ORDER BY 8 DESC
 ````
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/highest_views%20query.PNG?raw=True)
+
+The most paid HCPCS code is K1034, COVID 19 test, with $546.83 millions paid out by Original Medicare Part B. This code also had the amount of services submitted for payment in 2022, but is quite low in ranking for the average payment for code. 
+
+81528, unsurprisingly, was number 2 right after K1034. This code was also the only service code for physicians and others payments that was submitted by Exact Sciences Laboratories, Llc from an earlier query.
+
+0242U was the code with the highest average paymnent of $4935.87 per service. This code, very much like 81528, is also a gene analysis service.
+
+***
+
+For the last part of this project, I wanted to look at outpatient visit codes. ('99202', '99203', '99204', '99205', '99211', '99212', '99213', '99214', '99215', 'G2212', '99417')
