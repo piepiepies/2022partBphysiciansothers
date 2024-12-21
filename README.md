@@ -7,7 +7,7 @@ This data is available on https://data.cms.gov/provider-summary-by-type-of-servi
 
 The data was imported into SQL Server via SSMS using SQL. After importing the data, the data was further normalized and distributed into 4 tables: payment_information (main table), provider_information, ruca_information, and hcpcs_information. Refer to the SQL code section at the bottom for the code to import the data and to create the 4 tables.
 
-This project is to analyze the submissions for services on the continental US (including Hawaii) from providers that are Medicare participants, meaning that they are willing to accept the payment amount dictated by Medicare. See below PowerBI visualization for the general visualization of the project. Refer to [queryresults.MD](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/queryresults.MD) for indepth analysis of the area of focus.
+This project is to analyze the submissions for services on the continental US (including Hawaii) from providers that are Medicare participants, meaning that they are willing to accept the payment amount dictated by Medicare. See below Power BI visualization for the general visualization of the project. Refer to [queryresults.MD](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/queryresults.MD) for indepth analysis of the area of focus.
 
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/overall_info_visualization.PNG?raw=True)
 
