@@ -241,7 +241,7 @@ INNER JOIN hcpcs_information hcpcs
 WHERE provider_medicare_participation = 'Y'
 	AND provider_country = 'US' 
 	AND provider_state NOT IN ('XX', 'AA', 'AE', 'AP', 'AS', 'GU', 'MP', 'PR', 'VI' , 'ZZ', 'FM')
-GROUP BY pay.hcpcs_code, hcpcs.hcpcs_desc, hcpcs_drug_indicator, pay.avg_medicare_payment_amt
+GROUP BY pay.hcpcs_code, hcpcs.hcpcs_desc, hcpcs_drug_indicator
 ORDER BY hcpcs_total_paid DESC
 GO
 
