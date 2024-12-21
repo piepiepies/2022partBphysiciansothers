@@ -7,7 +7,7 @@ This data is available on https://data.cms.gov/provider-summary-by-type-of-servi
 
 The data was imported into SQL Server via SSMS using SQL. The visualizations are screenshots from visualizations created on PowerBI after importing the views from the decided views.sql file.
 
-The focus of this project is on submissions for services on the continental US (including Hawaii) from providers that are Medicare participants, meaning that they are willing to accept the payment amount dictated by Medicare. 
+The focus of this project is on submissions for services on the continental US (including Hawaii) from providers that are Medicare participants, meaning that they are willing to accept the payment amount dictated by Medicare. See below PowerBI visualization for the general overview 
 
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/overall_visualization.PNG?raw=True)
 
