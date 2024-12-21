@@ -346,17 +346,15 @@ SELECT
 	RANK() OVER (ORDER BY total_services_counts DESC) AS services_count_rank,
 	hcpcs_avg_medicare_payment,
 	RANK() OVER (ORDER BY hcpcs_avg_medicare_payment DESC) AS avg_payment_rank,
-	ROUND(hcpcs_total_paid/1000000, 2) AS hcspcs_total_paid_in_millions
+	ROUND(hcpcs_total_paid/1000000000, 2) AS hcspcs_total_paid_in_billions
 FROM highest_hcpcs
 ORDER BY 8 DESC
 ````
-![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/highest_views%20query.PNG?raw=True)
+![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/highest_hcpcs%20query.PNG?raw=True)
 
-The most paid HCPCS code is K1034, COVID 19 test, with $546.83 millions paid out by Original Medicare Part B. This code also had the amount of services submitted for payment in 2022, but is quite low in ranking for the average payment for code. 
+The most paid HCPCS code is 99214, outpatient visit for established patients from 30-39 minutes long, with $8.13 billions paid out by Original Medicare Part B. This code also had the amount of services submitted for payment in 2022, but is quite low in ranking for the average payment for code. 
 
-81528, unsurprisingly, was number 2 right after K1034. This code was also the only service code for physicians and others payments that was submitted by Exact Sciences Laboratories, Llc from an earlier query.
-
-0242U was the code with the highest average paymnent of $4935.87 per service. This code, very much like 81528, is also a gene analysis service.
+99213, unsurprisingly, was number 2 right after 99214. This code is also a code for outpatient visit for established patients, difference being this is for 20-29 minutes.
 
 ***
 
