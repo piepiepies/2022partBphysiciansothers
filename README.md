@@ -1,5 +1,5 @@
 # 2022 Part B Physicians and Others 
-This is a SQL project analyzing the Medicare Physician & Other Practitioners - by Provider and Service data for the 2022 year provided by CMS.
+This is a SQL project using the Medicare Physician & Other Practitioners - by Provider and Service data for the 2022 year provided by CMS.
 Description of the data taken from the website:
 Information on services and procedures provided to Original Medicare (fee-for-service) 
 Part B (Medical Insurance) beneficiaries by physicians and other healthcare professionals; aggregated by provider and service.
