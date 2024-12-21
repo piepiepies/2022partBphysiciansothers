@@ -5,9 +5,9 @@ Information on services and procedures provided to Original Medicare (fee-for-se
 Part B (Medical Insurance) beneficiaries by physicians and other healthcare professionals; aggregated by provider and service.
 This data is available on https://data.cms.gov/provider-summary-by-type-of-service/medicare-physician-other-practitioners/medicare-physician-other-practitioners-by-provider-and-service. I was not able to upload it on here because the CSV is 3GB, limit is 25MB. 
 
-The data was imported into SQL Server via SSMS using SQL. The visualizations are screenshots from visualizations created on PowerBI after importing the views from the decided views.sql file.
+The data was imported into SQL Server via SSMS using SQL. After importing the data, the data was further normalized and distributed into 4 tables: payment_information (main table), provider_information, ruca_information, and hcpcs_information. Refer to the SQL code section at the bottom for the code to import the data and to create the 4 tables.
 
-The focus of this project is on submissions for services on the continental US (including Hawaii) from providers that are Medicare participants, meaning that they are willing to accept the payment amount dictated by Medicare. See below PowerBI visualization for the general overview of the area of focus. Refer to [queryresults.MD](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/queryresults.MD) for indepth analysis of the area of focus.
+This project is to analyze the submissions for services on the continental US (including Hawaii) from providers that are Medicare participants, meaning that they are willing to accept the payment amount dictated by Medicare. See below PowerBI visualization for the general visualization of the project. Refer to [queryresults.MD](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/queryresults.MD) for indepth analysis of the area of focus.
 
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/overall_info_visualization.PNG?raw=True)
 
