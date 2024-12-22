@@ -19,6 +19,6 @@ Refer to the SQL code below for the process and the views:
 
 This project is to analyze the submissions for services on the continental US (including Hawaii) from providers that are Medicare participants, meaning that they are willing to accept the payment amount dictated by Medicare. See below Power BI visualization for the general visualization of the project. Refer to [queryresults.MD](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/queryresults.MD) for further analysis.
 
-[Tableau Dashboard](https://public.tableau.com/app/profile/rui.zhu8049/viz/partbphysicians2022/PartBpayment) I've also created a Tableau dashboard that's the interactive version of the visualization below. I don't have Power Bi Pro, otherwise I would've just published this one.
+[Tableau Dashboard](https://public.tableau.com/app/profile/rui.zhu8049/viz/partbphysicians2022/PartBpayment) I've also created a Tableau dashboard that's the interactive version of the visualization below. The state parameter and the N rank are changable. I don't have Power Bi Pro, otherwise I would've just published this one.
 
 ![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/focus_overview.PNG?raw=True)
