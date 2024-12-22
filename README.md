@@ -5,7 +5,7 @@ Information on services and procedures provided to Original Medicare (fee-for-se
 Part B (Medical Insurance) beneficiaries by physicians and other healthcare professionals; aggregated by provider and service.
 This data is available on https://data.cms.gov/provider-summary-by-type-of-service/medicare-physician-other-practitioners/medicare-physician-other-practitioners-by-provider-and-service. I was not able to upload it on here because the CSV is 3GB, limit is 25MB. 
 
-The data was imported into SQL Server via SSMS using SQL. After importing the data, the data was further normalized and distributed into 4 tables: payment_information (main table), provider_information, ruca_information, and hcpcs_information. See [database diagram] for the four tables.
+The data was imported into SQL Server via SSMS using SQL. After importing the data, the data was further normalized and distributed into 4 tables: payment_information (main table), provider_information, ruca_information, and hcpcs_information. See [database diagram](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/database%20diagram.PNG) for the four tables.
 
 Refer to the SQL code below for the process and the views:
    * to upload the data to SQL Server: [original_data_load.sql](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/original_data_load.sql)
