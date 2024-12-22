@@ -29,7 +29,7 @@ Summarization:
   * The counts of total and participating are almost the same, only a minimum amount of all submissions were from providers that 
     did not accept the Medicare designated payment
 
-Reminder: for the rest of the queries, the focus will be on the the payment data that falls under the participating column also within the continental United States (including Hawaii). The query below provides the exploratory information for the data in this category.
+Reminder: for the rest of the queries, the focus will be on the the payment data that falls under the participating column also within the continental United States (including Hawaii). The query below provides the exploratory information for the data I will be focusing.
 ````sql
 SELECT
 	COUNT(*) AS total_rows,
