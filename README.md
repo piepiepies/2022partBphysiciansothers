@@ -19,4 +19,4 @@ Refer to the SQL code below for the process and the views:
 
 This project is to analyze the submissions for services on the continental US (including Hawaii) from providers that are Medicare participants, meaning that they are willing to accept the payment amount dictated by Medicare. See below Power BI visualization for the general visualization of the project. Refer to [queryresults.MD](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/queryresults.MD) for further analysis.
 
-![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/overall_info_visualization.PNG?raw=True)
+![alt text](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/focus_overview.PNG?raw=True)
