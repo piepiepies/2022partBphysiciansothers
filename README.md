@@ -7,6 +7,7 @@ This data is available on https://data.cms.gov/provider-summary-by-type-of-servi
 
 The data was imported into SQL Server via SSMS using SQL. After importing the data, the data was further normalized and distributed into 4 tables: payment_information (main table), provider_information, ruca_information, and hcpcs_information. See [database diagram](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/database%20diagram.PNG) for the four tables.
 
+
 Refer to the SQL code below for the process and the views:
    * to upload the data to SQL Server: [original_data_load.sql](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/original_data_load.sql)
    * normalizing the data by distributing into multiple tables: [table_creation.sql](https://github.com/piepiepies/2022partBphysiciansothers/blob/main/table_creation.sql)
