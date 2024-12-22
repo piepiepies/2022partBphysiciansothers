@@ -29,7 +29,27 @@ Summarization:
   * The counts of total and participating are almost the same, only a minimum amount of all submissions were from providers that 
     did not accept the Medicare designated payment
 
-Reminder: for the rest of the queries, the focus will be on the the payment data that falls under the participating column also within the continental United States (including Hawaii)
+Reminder: for the rest of the queries, the focus will be on the the payment data that falls under the participating column also within the continental United States (including Hawaii). The query below provides the exploratory information for the data in this category.
+````sql
+SELECT
+	COUNT(*) AS total_rows,
+	SUM(total_services) AS total_services_counts,
+	COUNT(DISTINCT hcpcs_code) AS total_distinct_codes,
+	COUNT(DISTINCT pay.provider_npi) AS total_distinct_providers,
+	ROUND(SUM(total_services * avg_submitted_charge),2) AS state_total_submitted,
+	ROUND(SUM(total_services * avg_medicare_allowed_amt),2) AS state_total_allowed,
+	ROUND(SUM(total_services * avg_medicare_payment_amt),2) AS state_total_paid
+FROM payment_information pay
+INNER JOIN provider_information pro
+	ON pay.provider_npi = pro.provider_npi
+WHERE provider_medicare_participation = 'Y'
+	AND provider_country = 'US' 
+	AND provider_state NOT IN ('XX', 'AA', 'AE', 'AP', 'AS', 'GU', 'MP', 'PR', 'VI' , 'ZZ', 'FM')
+````
+|total_rows|total_services_counts|total_distinct_codes|total_distinct_providers|state_total_submitted|state_total_allowed|state_total_paid|
+|----------|---------------------|--------------------|------------------------|---------------------|-------------------|----------------|
+|9729131   |2514729128           |6320                |1143455                 |350195132728.79      |112884713924.89    |88925500404.42  |
+
 
 ***
 ***
